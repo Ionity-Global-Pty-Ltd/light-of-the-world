@@ -26,8 +26,8 @@ const products = [
     price: 279,
     tag: "Herbal fresh",
     description: "Rosemary, eucalyptus, and sage essential oils.",
-    image: "https://images.unsplash.com/photo-1542038382126-77ae2819338d?auto=format&fit=crop&w=800&q=85",
-    alt: "A hand-poured candle on a table"
+    image: "https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?auto=format&fit=crop&w=800&q=85",
+    alt: "A softly glowing jar candle in the evening"
   },
   {
     id: "lavender-pillar",
@@ -36,8 +36,8 @@ const products = [
     price: 199,
     tag: "Slow burn",
     description: "Lavender essential oil with a quiet herbal finish.",
-    image: "https://images.unsplash.com/photo-1542038382126-77ae2819338d?auto=format&fit=crop&w=800&q=85",
-    alt: "A botanical pillar candle"
+    image: "https://images.unsplash.com/photo-1601479604588-68d9e6d386b5?auto=format&fit=crop&w=800&q=85",
+    alt: "Lit pillar candles beside dried botanicals"
   },
   {
     id: "lemongrass-grace",
@@ -46,8 +46,8 @@ const products = [
     price: 269,
     tag: "Bright herb",
     description: "Lemongrass, basil, and lavender essential oils.",
-    image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=85",
-    alt: "A warm candle in a dark glass jar"
+    image: "https://images.unsplash.com/photo-1605651202774-7d573fd3f12d?auto=format&fit=crop&w=800&q=85",
+    alt: "A warm votive candle burning at the edge of a bath"
   },
   {
     id: "eucalyptus-peace",
@@ -56,8 +56,8 @@ const products = [
     price: 279,
     tag: "Clear air",
     description: "Eucalyptus, spearmint, and rosemary essential oils.",
-    image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=85&crop=right",
-    alt: "A candle glowing with a peaceful light"
+    image: "https://images.unsplash.com/photo-1620733723572-11c53f73a416?auto=format&fit=crop&w=800&q=85",
+    alt: "White candles and a reed diffuser on fresh linen"
   },
   {
     id: "lavender-prayer-set",
@@ -66,8 +66,8 @@ const products = [
     price: 649,
     tag: "Gift set",
     description: "Three botanical votives: lavender, jasmine, and rosemary.",
-    image: "https://images.unsplash.com/photo-1602523961358-f9f03dd557db?auto=format&fit=crop&w=800&q=85&crop=left",
-    alt: "A botanical candle gift collection"
+    image: "https://images.unsplash.com/photo-1611800065908-233b597db552?auto=format&fit=crop&w=800&q=85",
+    alt: "A trio of botanical candles arranged for a quiet ritual"
   },
   {
     id: "centurion-garden-set",
@@ -76,8 +76,8 @@ const products = [
     price: 699,
     tag: "Local favourite",
     description: "Lavender candle, 10 ml oil blend, and a handwritten blessing.",
-    image: "https://images.unsplash.com/photo-1542038382126-77ae2819338d?auto=format&fit=crop&w=800&q=85&crop=top",
-    alt: "A botanical candle and essential oil gift set"
+    image: "https://images.unsplash.com/photo-1519643381401-22c77e60520e?auto=format&fit=crop&w=800&q=85",
+    alt: "A bright table set with candles and fresh botanicals"
   },
   {
     id: "lavender-essential-oil",
@@ -86,8 +86,8 @@ const products = [
     price: 149,
     tag: "10 ml",
     description: "Lavender oil for a diffuser or oil burner.",
-    image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=85&crop=left",
-    alt: "A calming essential oil blend"
+    image: "https://images.unsplash.com/photo-1477511801984-4ad318ed9846?auto=format&fit=crop&w=800&q=85",
+    alt: "A lavender field glowing in soft evening light"
   },
   {
     id: "stillness-oil-blend",
@@ -96,8 +96,8 @@ const products = [
     price: 169,
     tag: "10 ml",
     description: "Lavender, jasmine, clary sage, and geranium for diffusers.",
-    image: "https://images.unsplash.com/photo-1602523961358-f9f03dd557db?auto=format&fit=crop&w=800&q=85&crop=top",
-    alt: "A floral herbal essential oil blend"
+    image: "https://images.unsplash.com/photo-1507290439931-a861b5a38200?auto=format&fit=crop&w=800&q=85",
+    alt: "A soft floral bloom in lavender tones"
   },
   {
     id: "eucalyptus-focus-oil",
@@ -106,8 +106,8 @@ const products = [
     price: 159,
     tag: "10 ml",
     description: "Eucalyptus, rosemary, and peppermint for a diffuser or oil burner.",
-    image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=85&crop=right",
-    alt: "A refreshing herbal essential oil blend"
+    image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=85",
+    alt: "An amber glass essential oil bottle in warm light"
   }
 ];
 
@@ -209,7 +209,7 @@ function renderProducts() {
   productGrid.innerHTML = products.map((product, index) => `
     <article class="product-card ${activeFilter !== "all" && activeFilter !== product.category ? "is-hidden" : ""}" style="animation-delay: ${index * 60}ms">
       <div class="product-image">
-        <img src="${product.image}" alt="${product.alt}" loading="lazy" />
+        <img src="${product.image}" alt="${product.alt}" loading="lazy" decoding="async" />
         <span class="product-tag">${product.tag}</span>
       </div>
       <div class="product-info">
@@ -264,6 +264,12 @@ function renderCart() {
   const total = items.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
   cartCount.textContent = itemCount;
   cartCount.setAttribute("aria-label", `${itemCount} ${itemCount === 1 ? "item" : "items"}`);
+  if (cartCount.dataset.count && cartCount.dataset.count !== String(itemCount)) {
+    cartCount.classList.remove("bump");
+    void cartCount.offsetWidth;
+    cartCount.classList.add("bump");
+  }
+  cartCount.dataset.count = String(itemCount);
   cartTotal.textContent = currency.format(total);
 
   if (!items.length) {
@@ -652,6 +658,27 @@ document.addEventListener("keydown", (event) => {
 });
 
 document.querySelector("#year").textContent = new Date().getFullYear();
+
+const siteHeader = document.querySelector(".site-header");
+window.addEventListener("scroll", () => {
+  siteHeader.classList.toggle("is-scrolled", window.scrollY > 24);
+}, { passive: true });
+
+const revealTargets = document.querySelectorAll(
+  ".verse-section > *, .section-heading, .collection-controls, .blend-guide-section > *, .story-section > *, .promise-section article, .ritual-section > *, .contact-content, .site-footer"
+);
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("is-revealed");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -4% 0px" });
+revealTargets.forEach((target) => {
+  target.classList.add("reveal");
+  revealObserver.observe(target);
+});
 dailyVerse();
 renderProducts();
 renderCart();
