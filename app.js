@@ -1,83 +1,113 @@
 const products = [
   {
-    id: "morning-mercy",
-    name: "Morning Mercy",
+    id: "lavender-sabbath",
+    name: "Lavender Sabbath",
     category: "jar",
-    price: 28,
-    tag: "Bestseller",
-    description: "Bergamot, white tea, and soft rain.",
+    price: 289,
+    tag: "Lavender original",
+    description: "Lavender essential oil, rosemary, and cedar leaf.",
     image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=85",
     alt: "A softly glowing candle in a glass jar"
   },
   {
-    id: "garden-grace",
-    name: "Garden Grace",
+    id: "jasmine-prayer",
+    name: "Jasmine Prayer",
     category: "jar",
-    price: 30,
-    tag: "New pour",
-    description: "Rosemary, lemon leaf, and moss.",
+    price: 319,
+    tag: "Floral herb",
+    description: "Jasmine absolute, lavender, and geranium leaf.",
     image: "https://images.unsplash.com/photo-1602523961358-f9f03dd557db?auto=format&fit=crop&w=800&q=85",
     alt: "A natural candle beside green foliage"
   },
   {
-    id: "sabbath-pillar",
-    name: "Sabbath Pillar",
-    category: "pillar",
-    price: 24,
-    tag: "Slow burn",
-    description: "Unscented beeswax for a quiet table.",
-    image: "https://images.unsplash.com/photo-1542038382126-77ae2819338d?auto=format&fit=crop&w=800&q=85",
-    alt: "Simple pillar candles on a table"
-  },
-  {
-    id: "table-of-welcome",
-    name: "Table of Welcome",
-    category: "gift",
-    price: 54,
-    tag: "Gift set",
-    description: "Two votives and a handwritten blessing.",
-    image: "https://images.unsplash.com/photo-1542038382126-77ae2819338d?auto=format&fit=crop&w=800&q=85",
-    alt: "A candle gift wrapped with ribbon"
-  },
-  {
-    id: "cedar-psalm",
-    name: "Cedar Psalm",
+    id: "rosemary-renewal",
+    name: "Rosemary Renewal",
     category: "jar",
-    price: 32,
-    tag: "Woodland",
-    description: "Cedarwood, amber, and a hint of smoke.",
+    price: 279,
+    tag: "Herbal fresh",
+    description: "Rosemary, eucalyptus, and sage essential oils.",
+    image: "https://images.unsplash.com/photo-1542038382126-77ae2819338d?auto=format&fit=crop&w=800&q=85",
+    alt: "A hand-poured candle on a table"
+  },
+  {
+    id: "lavender-pillar",
+    name: "Lavender Garden Pillar",
+    category: "pillar",
+    price: 199,
+    tag: "Slow burn",
+    description: "Lavender essential oil with a quiet herbal finish.",
+    image: "https://images.unsplash.com/photo-1542038382126-77ae2819338d?auto=format&fit=crop&w=800&q=85",
+    alt: "A botanical pillar candle"
+  },
+  {
+    id: "lemongrass-grace",
+    name: "Lemongrass Grace",
+    category: "jar",
+    price: 269,
+    tag: "Bright herb",
+    description: "Lemongrass, basil, and lavender essential oils.",
     image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=85",
     alt: "A warm candle in a dark glass jar"
   },
   {
-    id: "joyful-light",
-    name: "Joyful Light",
-    category: "pillar",
-    price: 26,
-    tag: "Festive",
-    description: "Orange peel, clove, and warm vanilla.",
-    image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=85&crop=right",
-    alt: "Candles glowing with a warm orange light"
-  },
-  {
-    id: "still-water",
-    name: "Still Water",
+    id: "eucalyptus-peace",
+    name: "Eucalyptus Peace",
     category: "jar",
-    price: 29,
-    tag: "Restful",
-    description: "Eucalyptus, sage, and clean linen.",
-    image: "https://images.unsplash.com/photo-1602523961358-f9f03dd557db?auto=format&fit=crop&w=800&q=85&crop=left",
-    alt: "A calming candle near dried flowers"
+    price: 279,
+    tag: "Clear air",
+    description: "Eucalyptus, spearmint, and rosemary essential oils.",
+    image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=85&crop=right",
+    alt: "A candle glowing with a peaceful light"
   },
   {
-    id: "gathered-in-light",
-    name: "Gathered in Light",
+    id: "lavender-prayer-set",
+    name: "Lavender Prayer Set",
     category: "gift",
-    price: 68,
-    tag: "For sharing",
-    description: "Three minis for host gifts and gentle hellos.",
+    price: 649,
+    tag: "Gift set",
+    description: "Three botanical votives: lavender, jasmine, and rosemary.",
+    image: "https://images.unsplash.com/photo-1602523961358-f9f03dd557db?auto=format&fit=crop&w=800&q=85&crop=left",
+    alt: "A botanical candle gift collection"
+  },
+  {
+    id: "centurion-garden-set",
+    name: "Centurion Garden Set",
+    category: "gift",
+    price: 699,
+    tag: "Local favourite",
+    description: "Lavender candle, 10 ml oil blend, and a handwritten blessing.",
     image: "https://images.unsplash.com/photo-1542038382126-77ae2819338d?auto=format&fit=crop&w=800&q=85&crop=top",
-    alt: "A collection of handmade candles"
+    alt: "A botanical candle and essential oil gift set"
+  },
+  {
+    id: "lavender-essential-oil",
+    name: "Lavender Essential Oil",
+    category: "oil",
+    price: 149,
+    tag: "10 ml",
+    description: "Lavender oil for a diffuser or oil burner.",
+    image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=85&crop=left",
+    alt: "A calming essential oil blend"
+  },
+  {
+    id: "stillness-oil-blend",
+    name: "Stillness Oil Blend",
+    category: "oil",
+    price: 169,
+    tag: "10 ml",
+    description: "Lavender, jasmine, clary sage, and geranium for diffusers.",
+    image: "https://images.unsplash.com/photo-1602523961358-f9f03dd557db?auto=format&fit=crop&w=800&q=85&crop=top",
+    alt: "A floral herbal essential oil blend"
+  },
+  {
+    id: "eucalyptus-focus-oil",
+    name: "Eucalyptus Focus Oil",
+    category: "oil",
+    price: 159,
+    tag: "10 ml",
+    description: "Eucalyptus, rosemary, and peppermint for a diffuser or oil burner.",
+    image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=85&crop=right",
+    alt: "A refreshing herbal essential oil blend"
   }
 ];
 
@@ -99,14 +129,71 @@ const cartTotal = document.querySelector("#cart-total");
 const drawerScrim = document.querySelector("#drawer-scrim");
 const checkoutDialog = document.querySelector("#checkout-dialog");
 const toast = document.querySelector("#toast");
-const currency = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+const currency = new Intl.NumberFormat("en-ZA", {
+  style: "currency",
+  currency: "ZAR",
+  currencyDisplay: "narrowSymbol",
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0
+});
 let cart = loadCart();
 let activeFilter = "all";
 let toastTimer;
 
+const blendRecommendations = {
+  rest: {
+    candle: {
+      productId: "lavender-sabbath",
+      reason: "Lavender, rosemary, and cedar leaf make a gentle beginning for a slower evening.",
+      blessing: "May this small light make room for calm, rest, and a settled heart."
+    },
+    oil: {
+      productId: "stillness-oil-blend",
+      reason: "Let lavender, jasmine, clary sage, and geranium soften the room from your diffuser.",
+      blessing: "May this small light make room for calm, rest, and a settled heart."
+    }
+  },
+  clarity: {
+    candle: {
+      productId: "rosemary-renewal",
+      reason: "Rosemary, eucalyptus, and sage bring a green, clear note to a focused morning or workspace.",
+      blessing: "May you find clear thought, steady breath, and grace for what is in front of you."
+    },
+    oil: {
+      productId: "eucalyptus-focus-oil",
+      reason: "Eucalyptus, rosemary, and peppermint create a bright herbal ritual at the diffuser.",
+      blessing: "May you find clear thought, steady breath, and grace for what is in front of you."
+    }
+  },
+  welcome: {
+    candle: {
+      productId: "jasmine-prayer",
+      reason: "Jasmine, lavender, and geranium leaf make a floral-herbal welcome for a shared table.",
+      blessing: "May your home feel open, warm, and ready for every good conversation."
+    },
+    oil: {
+      productId: "lavender-essential-oil",
+      reason: "A few drops of lavender oil give an entryway or living room a calm, generous welcome.",
+      blessing: "May your home feel open, warm, and ready for every good conversation."
+    }
+  },
+  gift: {
+    candle: {
+      productId: "centurion-garden-set",
+      reason: "A lavender candle, botanical oil blend, and handwritten blessing create a thoughtful South African gift.",
+      blessing: "May this gift carry a little light into the days ahead."
+    },
+    oil: {
+      productId: "centurion-garden-set",
+      reason: "The Centurion Garden Set includes both a candle and an oil blend, ready to give with a handwritten blessing.",
+      blessing: "May this gift carry a little light into the days ahead."
+    }
+  }
+};
+
 function loadCart() {
   try {
-    const saved = JSON.parse(localStorage.getItem("lotw-cart"));
+    const saved = JSON.parse(localStorage.getItem("lotw-cart-za"));
     if (!Array.isArray(saved)) return [];
     return saved.filter((item) => products.some((product) => product.id === item.id) && Number.isInteger(item.quantity) && item.quantity > 0);
   } catch {
@@ -115,7 +202,7 @@ function loadCart() {
 }
 
 function saveCart() {
-  localStorage.setItem("lotw-cart", JSON.stringify(cart));
+  localStorage.setItem("lotw-cart-za", JSON.stringify(cart));
 }
 
 function renderProducts() {
@@ -230,7 +317,7 @@ function dailyVerse() {
   const verse = verses[index];
   document.querySelector("#daily-verse").textContent = verse.quote;
   document.querySelector("#verse-reference").textContent = verse.reference;
-  document.querySelector("#verse-date").textContent = new Intl.DateTimeFormat("en-US", { weekday: "long", month: "long", day: "numeric" }).format(now);
+  document.querySelector("#verse-date").textContent = new Intl.DateTimeFormat("en-ZA", { weekday: "long", month: "long", day: "numeric" }).format(now);
 }
 
 function beginCheckout() {
@@ -263,6 +350,30 @@ function createOrderEmail(formData) {
   ].join("\n");
   window.location.href = `mailto:ai@ionity.today?subject=${encodeURIComponent("Light of the World candle order")}&body=${encodeURIComponent(body)}`;
   showToast("Your order email is ready to send.");
+}
+
+function renderBlendRecommendation(formData) {
+  const moment = formData.get("moment");
+  const format = formData.get("format");
+  const recommendation = blendRecommendations[moment]?.[format];
+  const blendResult = document.querySelector("#blend-result");
+  const product = recommendation && getProduct(recommendation.productId);
+
+  if (!product) {
+    blendResult.innerHTML = "<p>We could not find a blend for that moment. Please try again.</p>";
+    return;
+  }
+
+  blendResult.innerHTML = `
+    <p class="eyebrow">YOUR BOTANICAL LIGHT</p>
+    <h3>${product.name}</h3>
+    <p class="blend-result-copy">${recommendation.reason}</p>
+    <div class="blend-result-actions">
+      <span class="blend-result-price">${currency.format(product.price)}</span>
+      <button class="button button-secondary" type="button" data-recommendation-id="${product.id}">Add this blend to bag</button>
+    </div>
+    <p class="blend-result-blessing">${recommendation.blessing}</p>
+  `;
 }
 
 document.querySelectorAll(".filter").forEach((filterButton) => {
@@ -306,6 +417,32 @@ document.querySelector("#newsletter-form").addEventListener("submit", (event) =>
   const email = new FormData(event.currentTarget).get("email");
   window.location.href = `mailto:ai@ionity.today?subject=${encodeURIComponent("Light of the World updates")}&body=${encodeURIComponent(`Hello Light of the World,\n\nPlease keep me in the loop at ${email}.\n\nThank you.`)}`;
   showToast("Your message is ready to send.");
+});
+
+const hero = document.querySelector(".hero");
+const digitalCandle = document.querySelector(".digital-candle");
+document.querySelectorAll(".ambience-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    const ambience = button.dataset.ambience;
+    hero.dataset.ambience = ambience;
+    digitalCandle.setAttribute("aria-label", `A digital candle burning with a gentle ${ambience} glow`);
+    document.querySelectorAll(".ambience-button").forEach((ambienceButton) => {
+      const isActive = ambienceButton === button;
+      ambienceButton.classList.toggle("is-active", isActive);
+      ambienceButton.setAttribute("aria-pressed", String(isActive));
+    });
+  });
+});
+
+const blendGuideForm = document.querySelector("#blend-guide-form");
+const blendResult = document.querySelector("#blend-result");
+blendGuideForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  renderBlendRecommendation(new FormData(blendGuideForm));
+});
+blendResult.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-recommendation-id]");
+  if (button) addToCart(button.dataset.recommendationId);
 });
 
 const menuToggle = document.querySelector(".menu-toggle");

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Light of the World creates hand-poured Christian scented candles for prayer, gifting, and everyday moments of peace."
+      content="Hand-poured botanical Christian candles from Centurion, South Africa, led by lavender, jasmine, herbs, and essential oils."
     />
     <meta name="theme-color" content="#1b6d55" />
     <meta name="robots" content="index, follow" />
@@ -18,10 +18,10 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Light of the World" />
-    <meta property="og:title" content="Light of the World | Hand-poured Christian Candles" />
+    <meta property="og:title" content="Light of the World | Botanical candles from Centurion" />
     <meta
       property="og:description"
-      content="Small-batch scented candles made to brighten prayer, hospitality, and the everyday sacred."
+      content="Small-batch botanical candles, lavender-led blends, and essential oils, hand-poured in Centurion, South Africa."
     />
     <meta property="og:url" content="https://ionity-global-pty-ltd.github.io/light-of-the-world/" />
     <meta
@@ -29,21 +29,33 @@
       content="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=1600&q=90"
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Light of the World | Hand-poured Christian Candles" />
+    <meta name="twitter:title" content="Light of the World | Botanical candles from Centurion" />
     <meta
       name="twitter:description"
-      content="Small-batch scented candles made to brighten prayer, hospitality, and the everyday sacred."
+      content="Small-batch botanical candles, lavender-led blends, and essential oils, hand-poured in Centurion, South Africa."
     />
-    <title>Light of the World | Hand-poured Christian Candles</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Light of the World | Botanical Candles in Centurion</title>
+    <link rel="stylesheet" href="styles.css?v=centurion-botanical-2" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Store",
         "name": "Light of the World",
-        "description": "Hand-poured Christian scented candles for prayer, gifting, and everyday moments of peace.",
+        "description": "Hand-poured botanical Christian candles from Centurion, South Africa, led by lavender, jasmine, herbs, and essential oils.",
         "url": "https://ionity-global-pty-ltd.github.io/light-of-the-world/",
         "email": "ai@ionity.today",
+        "currenciesAccepted": "ZAR",
+        "priceRange": "R149-R699",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Centurion",
+          "addressRegion": "Gauteng",
+          "addressCountry": "ZA"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "South Africa"
+        },
         "brand": {
           "@type": "Brand",
           "name": "Light of the World"
@@ -60,9 +72,9 @@
     <a class="skip-link" href="#main-content">Skip to products</a>
 
     <div class="announcement" role="status">
-      <span>Hand-poured in small batches</span>
+      <span>Hand-poured in Centurion, Gauteng</span>
       <span aria-hidden="true">&#9670;</span>
-      <span>Thoughtful delivery by email order</span>
+      <span>Botanical candles and essential oils</span>
       <a href="#verse">Today&apos;s verse</a>
     </div>
 
@@ -92,22 +104,41 @@
     </header>
 
     <main id="main-content">
-      <section id="top" class="hero" aria-labelledby="hero-title">
+      <section id="top" class="hero" data-ambience="lavender" aria-labelledby="hero-title">
         <div class="hero-image" role="img" aria-label="A warm candle glowing in a peaceful home"></div>
+        <div class="hero-edge hero-edge-left" aria-hidden="true"></div>
+        <div class="hero-edge hero-edge-right" aria-hidden="true"></div>
         <div class="hero-content">
-          <p class="eyebrow">HOME-MADE WITH HOPE</p>
+          <p class="eyebrow">BOTANICAL LIGHT FROM CENTURION, SOUTH AFRICA</p>
           <h1 id="hero-title">A little light for the room, and for the soul.</h1>
           <p class="hero-intro">
-            Scented candles hand-poured for unhurried tables, soft prayers, and the people you love most.
+            Lavender leads every hand-poured blend, joined by jasmine, herbs, and essential oils for unhurried tables,
+            soft prayers, and the people you love most.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#shop">Shop the collection</a>
-            <a class="text-link" href="#verse">Receive today&apos;s verse <span aria-hidden="true">&#8595;</span></a>
+            <a class="button button-primary" href="#shop">Shop botanical light</a>
+            <a class="text-link" href="#blend-guide">Meet your blend <span aria-hidden="true">&#8595;</span></a>
+          </div>
+          <div class="hero-glow-picker" role="group" aria-label="Choose the digital candle glow">
+            <span>Choose the room glow</span>
+            <button class="ambience-button is-active" type="button" data-ambience="lavender" aria-pressed="true">Lavender</button>
+            <button class="ambience-button" type="button" data-ambience="jasmine" aria-pressed="false">Jasmine</button>
+            <button class="ambience-button" type="button" data-ambience="herbal" aria-pressed="false">Herbal</button>
           </div>
         </div>
         <div class="hero-note" aria-label="Small-batch candle promise">
-          <span>100%</span>
-          <p>small-batch<br />poured</p>
+          <span>ZA</span>
+          <p>poured in<br />Centurion</p>
+        </div>
+        <div class="digital-candle" role="img" aria-label="A digital candle burning with a gentle lavender glow">
+          <span class="candle-aura" aria-hidden="true"></span>
+          <span class="candle-flame" aria-hidden="true"><span class="candle-flame-core"></span></span>
+          <div class="candle-vessel" aria-hidden="true">
+            <span class="candle-wax"></span>
+            <span class="candle-wick"></span>
+            <span class="vessel-glint"></span>
+            <span class="vessel-label">LIGHT<br />OF THE WORLD</span>
+          </div>
         </div>
       </section>
 
@@ -128,19 +159,54 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">THE CANDLE SHELF</p>
-            <h2 id="shop-title">Made for the moments that matter.</h2>
+            <h2 id="shop-title">Botanical light for the moments that matter.</h2>
           </div>
-          <p>Natural soy wax, clean fragrance blends, and a generous glow in every pour.</p>
+          <p>Lavender leads the collection, with jasmine, rosemary, eucalyptus, sage, geranium, and diffuser oils in every garden-led ritual.</p>
         </div>
 
         <div class="collection-controls" role="group" aria-label="Filter candle collection">
           <button class="filter is-active" type="button" data-filter="all">All candles</button>
-          <button class="filter" type="button" data-filter="jar">Jar candles</button>
+          <button class="filter" type="button" data-filter="jar">Botanical jars</button>
           <button class="filter" type="button" data-filter="pillar">Pillars</button>
           <button class="filter" type="button" data-filter="gift">Gift sets</button>
+          <button class="filter" type="button" data-filter="oil">Diffuser oils</button>
         </div>
 
         <div id="product-grid" class="product-grid" aria-live="polite"></div>
+      </section>
+
+      <section id="blend-guide" class="blend-guide-section" aria-labelledby="blend-guide-title">
+        <div class="blend-guide-intro">
+          <p class="eyebrow">AI-INSPIRED BLEND GUIDE</p>
+          <h2 id="blend-guide-title">Ask the light what to burn next.</h2>
+          <p>
+            Share the feeling you want to make space for. Our private, on-page guide pairs the moment with a botanical
+            candle or diffuser oil and a small blessing to carry into it.
+          </p>
+          <p class="guide-privacy">Runs in your browser. Your answers are never sent anywhere.</p>
+        </div>
+        <form id="blend-guide-form" class="blend-guide-form">
+          <fieldset>
+            <legend>What would you like to invite in?</legend>
+            <div class="choice-grid">
+              <label><input type="radio" name="moment" value="rest" checked /><span>Quiet rest</span></label>
+              <label><input type="radio" name="moment" value="clarity" /><span>Clear focus</span></label>
+              <label><input type="radio" name="moment" value="welcome" /><span>A warm welcome</span></label>
+              <label><input type="radio" name="moment" value="gift" /><span>A meaningful gift</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Where will the ritual happen?</legend>
+            <div class="choice-grid choice-grid-small">
+              <label><input type="radio" name="format" value="candle" checked /><span>By candlelight</span></label>
+              <label><input type="radio" name="format" value="oil" /><span>At the diffuser</span></label>
+            </div>
+          </fieldset>
+          <button class="button button-primary" type="submit">Find my blend</button>
+          <div id="blend-result" class="blend-result" aria-live="polite">
+            <p>Choose a moment and we will prepare a botanical recommendation.</p>
+          </div>
+        </form>
       </section>
 
       <section id="story" class="story-section" aria-labelledby="story-title">
@@ -156,20 +222,20 @@
           <p class="eyebrow">OUR WHY</p>
           <h2 id="story-title">The brightest homes are built in the smallest moments.</h2>
           <p>
-            Light of the World began with a simple kitchen-table ritual: warm wax, a well-loved hymn, and a candle
-            lit before the evening meal. We still make every candle with that same sense of welcome.
+            Light of the World began at a kitchen table in Centurion: warm wax, a well-loved hymn, and a candle lit
+            before the evening meal. We still make every candle with that same sense of welcome.
           </p>
           <p>
-            Each fragrance is designed to feel familiar, not fleeting: citrus at the open window, rosemary in the
-            garden, cedar after rain. Thoughtful enough to give; lovely enough to keep.
+            Our scents stay close to the garden: lavender in the linen, jasmine after dusk, rosemary at the open
+            window, and eucalyptus after rain. Thoughtful enough to give; lovely enough to keep.
           </p>
           <a class="text-link" href="#contact">Meet the maker <span aria-hidden="true">&#8594;</span></a>
         </div>
       </section>
 
       <section class="promise-section" aria-label="Candle promises">
-        <article><span class="promise-number">01</span><h3>Made at home</h3><p>Small-batch pours with the care of a hand-written note.</p></article>
-        <article><span class="promise-number">02</span><h3>Clean-burning</h3><p>Soy wax and cotton wicks for a softer, slower burn.</p></article>
+        <article><span class="promise-number">01</span><h3>Made in Centurion</h3><p>Small-batch pours with the care of a hand-written note.</p></article>
+        <article><span class="promise-number">02</span><h3>Botanical by design</h3><p>Lavender, jasmine, herbs, and essential-oil blends lead every scent.</p></article>
         <article><span class="promise-number">03</span><h3>Ready to give</h3><p>Every order is packed as a small celebration of light.</p></article>
       </section>
 
@@ -199,7 +265,7 @@
         <div class="contact-content">
           <p class="eyebrow">A NOTE FROM OUR TABLE</p>
           <h2 id="contact-title">Make a little room for light.</h2>
-          <p>For custom gifts, delivery questions, and wholesale enquiries, send us a note. We reply personally.</p>
+          <p>For custom gifts, Centurion collection, South African delivery, and wholesale enquiries, send us a note. We reply personally.</p>
           <form id="newsletter-form" class="newsletter-form">
             <label class="sr-only" for="email-address">Your email address</label>
             <input id="email-address" name="email" type="email" autocomplete="email" placeholder="Your email address" required />
@@ -215,7 +281,7 @@
         <span class="brand-mark" aria-hidden="true"><i></i></span>
         <span class="brand-copy"><strong>LIGHT</strong><em>of the world</em></span>
       </a>
-      <p>Hand-poured candles for faithful, beautiful living.</p>
+      <p>Botanical candles and oils, hand-poured in Centurion, South Africa.</p>
       <div class="footer-meta">
         <span>Created by <a href="https://github.com/Ionity-Global-Pty-Ltd" target="_blank" rel="noopener noreferrer">Ionity Global Pty Ltd</a></span>
         <span>&copy; <span id="year"></span> Light of the World</span>
@@ -229,9 +295,9 @@
       </div>
       <div id="cart-items" class="cart-items"></div>
       <div class="cart-footer">
-        <div class="cart-total"><span>Order total</span><strong id="cart-total">$0.00</strong></div>
+        <div class="cart-total"><span>Order total</span><strong id="cart-total">R0</strong></div>
         <button id="checkout-button" class="button button-primary button-full" type="button">Arrange delivery</button>
-        <p>Delivery details are confirmed personally by email.</p>
+        <p>South African delivery or Centurion collection is confirmed personally by email.</p>
       </div>
     </aside>
     <div id="drawer-scrim" class="drawer-scrim" hidden></div>
@@ -241,15 +307,15 @@
         <button class="icon-button dialog-close" type="button" aria-label="Close checkout">&times;</button>
         <p class="eyebrow">ONE LAST THING</p>
         <h2 id="checkout-title">Where should we send your light?</h2>
-        <p>We will prepare an email with your order. Add the details needed for a thoughtful delivery.</p>
+        <p>We will prepare an email with your order. Add the details for South African delivery or Centurion collection.</p>
         <div class="form-grid">
           <label>Full name<input name="name" autocomplete="name" required /></label>
           <label>Email<input name="email" type="email" autocomplete="email" required /></label>
         </div>
-        <label>Delivery address<textarea name="address" rows="3" autocomplete="street-address" required></textarea></label>
+        <label>Delivery address in South Africa<textarea name="address" rows="3" autocomplete="street-address" required></textarea></label>
         <label>Gift note or delivery request <span>(optional)</span><textarea name="note" rows="3"></textarea></label>
         <button class="button button-primary button-full" type="submit">Email my order</button>
-        <p class="checkout-note">No payment is taken here. We will confirm delivery and payment securely by email.</p>
+        <p class="checkout-note">No payment is taken here. We will confirm delivery or collection and payment securely by email.</p>
       </form>
     </dialog>
 
