@@ -1,0 +1,9 @@
+{
+  "name": "Light of the World",
+  "short_name": "Light",
+  "description": "Hand-poured Christian scented candles for faithful, beautiful living.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fbf7ed",
+  "theme_color": "#1b6d55"
+}
