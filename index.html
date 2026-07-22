@@ -35,7 +35,7 @@
       content="Small-batch botanical candles, lavender-led blends, and essential oils, hand-poured in Centurion, South Africa."
     />
     <title>Light of the World | Botanical Candles in Centurion</title>
-    <link rel="stylesheet" href="styles.css?v=pixel-flame-1" />
+    <link rel="stylesheet" href="styles.css?v=pixel-flame-2" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -62,9 +62,10 @@
         },
         "parentOrganization": {
           "@type": "Organization",
-          "name": "Ionity Global Pty Ltd"
+          "name": "Ionity Global Pty Ltd",
+          "url": "https://www.ionity.co.za"
         },
-        "sameAs": ["https://github.com/Ionity-Global-Pty-Ltd"]
+        "sameAs": ["https://github.com/Ionity-Global-Pty-Ltd", "https://www.ionity.co.za"]
       }
     </script>
   </head>
@@ -130,7 +131,7 @@
           <span>ZA</span>
           <p>poured in<br />Centurion</p>
         </div>
-        <div class="digital-candle" role="img" aria-label="A living pixel candle burning with a gentle lavender glow">
+        <div class="digital-candle" role="button" tabindex="0" aria-pressed="true" aria-label="A living pixel candle burning with a gentle lavender glow. Press to blow it out or relight it.">
           <span class="candle-aura" aria-hidden="true"></span>
           <canvas id="flame-canvas" class="candle-flame-canvas" width="44" height="60" aria-hidden="true"></canvas>
           <div class="candle-vessel" aria-hidden="true">
@@ -183,7 +184,7 @@
             Share the feeling you want to make space for. Our private, on-page guide pairs the moment with a botanical
             candle or diffuser oil and a small blessing to carry into it.
           </p>
-          <p class="guide-privacy">Runs in your browser. Your answers are never sent anywhere.</p>
+          <p class="guide-privacy">100% on-device: this guide runs in your browser and your answers are never sent anywhere.</p>
         </div>
         <form id="blend-guide-form" class="blend-guide-form">
           <fieldset>
@@ -281,8 +282,12 @@
         <span class="brand-mark" aria-hidden="true"><i></i></span>
         <span class="brand-copy"><strong>LIGHT</strong><em>of the world</em></span>
       </a>
-      <p>Botanical candles and oils, hand-poured in Centurion, South Africa.</p>
+      <div class="footer-copy">
+        <p>Botanical candles and oils, hand-poured in Centurion, South Africa.</p>
+        <p class="footer-blessing">&ldquo;Loof die Here, want Hy is goed; aan Sy liefde is daar geen einde nie.&rdquo;</p>
+      </div>
       <div class="footer-meta">
+        <span>Part of the <a href="https://www.ionity.co.za" target="_blank" rel="noopener noreferrer">Ionity Global</a> family &middot; <a href="https://www.ionity.today" target="_blank" rel="noopener noreferrer">ionity.today</a></span>
         <span>Created by <a href="https://github.com/Ionity-Global-Pty-Ltd" target="_blank" rel="noopener noreferrer">Ionity Global Pty Ltd</a></span>
         <span>&copy; <span id="year"></span> Light of the World</span>
       </div>
@@ -320,6 +325,6 @@
     </dialog>
 
     <p id="toast" class="toast" role="status" aria-live="polite"></p>
-    <script src="app.js?v=pixel-flame-1"></script>
+    <script src="app.js?v=pixel-flame-2"></script>
   </body>
 </html>

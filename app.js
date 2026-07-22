@@ -424,7 +424,7 @@ const digitalCandle = document.querySelector(".digital-candle");
 
 const pixelFlame = (() => {
   const canvas = document.querySelector("#flame-canvas");
-  if (!canvas || !canvas.getContext) return { setAmbience() {} };
+  if (!canvas || !canvas.getContext) return { setAmbience() {}, toggle: () => true, isLit: () => true };
 
   const width = canvas.width;
   const height = canvas.height;
@@ -438,6 +438,9 @@ const pixelFlame = (() => {
     jasmine: [[84, 42, 33], [173, 90, 58], [232, 146, 92], [250, 200, 138], [255, 232, 171], [255, 250, 232]],
     herbal: [[20, 66, 48], [45, 110, 72], [104, 165, 92], [174, 214, 117], [236, 245, 206], [255, 252, 235]]
   };
+  const smokeStops = [[38, 44, 52], [74, 82, 92], [118, 126, 136], [164, 171, 180], [206, 211, 218], [232, 235, 240]];
+  let ambienceName = "lavender";
+  let lit = true;
   let palette = buildPalette(paletteStops.lavender);
   let wind = 0;
   let targetWind = 0;
@@ -446,7 +449,7 @@ const pixelFlame = (() => {
   let frameHandle = 0;
   let lastTick = 0;
 
-  function buildPalette(stops) {
+  function buildPalette(stops, alphaScale = 34) {
     const colors = [];
     for (let index = 0; index <= maxHeat; index += 1) {
       const position = (index / maxHeat) * (stops.length - 1);
@@ -458,10 +461,14 @@ const pixelFlame = (() => {
         Math.round(from[0] + (to[0] - from[0]) * mix),
         Math.round(from[1] + (to[1] - from[1]) * mix),
         Math.round(from[2] + (to[2] - from[2]) * mix),
-        index < 5 ? 0 : Math.min(255, (index - 4) * 34)
+        index < 5 ? 0 : Math.min(255, (index - 4) * alphaScale)
       ]);
     }
     return colors;
+  }
+
+  function applyPalette() {
+    palette = lit ? buildPalette(paletteStops[ambienceName] || paletteStops.lavender) : buildPalette(smokeStops, 15);
   }
 
   function stepFire() {
@@ -470,12 +477,24 @@ const pixelFlame = (() => {
     wind += (targetWind - wind) * 0.08;
 
     const wickCentre = Math.floor(width / 2);
-    const wickGlow = maxHeat - 3 + Math.round(Math.sin(breath) * 2);
-    const wickHalf = Math.random() < 0.05 ? 6 : 4;
     const bottomRow = (height - 1) * width;
-    for (let x = 0; x < width; x += 1) {
-      const distance = Math.abs(x - wickCentre);
-      heat[bottomRow + x] = distance <= wickHalf ? Math.max(0, wickGlow - distance * 4 - ((Math.random() * 5) | 0)) : 0;
+    if (lit) {
+      const wickGlow = maxHeat - 3 + Math.round(Math.sin(breath) * 2);
+      const wickHalf = Math.random() < 0.05 ? 6 : 4;
+      for (let x = 0; x < width; x += 1) {
+        const distance = Math.abs(x - wickCentre);
+        heat[bottomRow + x] = distance <= wickHalf ? Math.max(0, wickGlow - distance * 4 - ((Math.random() * 5) | 0)) : 0;
+      }
+      if (Math.random() < 0.18) {
+        const emberColumn = Math.min(width - 1, Math.max(0, wickCentre + Math.round(wind * 3) + (((Math.random() * 9) | 0) - 4)));
+        const emberRow = 8 + ((Math.random() * 16) | 0);
+        heat[emberRow * width + emberColumn] = maxHeat - ((Math.random() * 7) | 0);
+      }
+    } else {
+      for (let x = 0; x < width; x += 1) {
+        const distance = Math.abs(x - wickCentre);
+        heat[bottomRow + x] = distance <= 1 && Math.random() < 0.42 ? 9 + ((Math.random() * 8) | 0) : 0;
+      }
     }
 
     for (let y = height - 1; y > 0; y -= 1) {
@@ -554,19 +573,50 @@ const pixelFlame = (() => {
   start();
 
   return {
+    isLit: () => lit,
+    toggle() {
+      lit = !lit;
+      applyPalette();
+      if (!running) renderStill();
+      return lit;
+    },
     setAmbience(name) {
-      palette = buildPalette(paletteStops[name] || paletteStops.lavender);
+      if (paletteStops[name]) ambienceName = name;
+      applyPalette();
       if (!running) renderFire();
     }
   };
 })();
+
+function updateCandleLabel() {
+  const ambience = hero.dataset.ambience || "lavender";
+  const state = pixelFlame.isLit()
+    ? `burning with a gentle ${ambience} glow`
+    : "resting with a soft wisp of smoke";
+  digitalCandle.setAttribute("aria-label", `A living pixel candle ${state}. Press to blow it out or relight it.`);
+}
+
+digitalCandle.addEventListener("click", () => {
+  const isLit = pixelFlame.toggle();
+  digitalCandle.classList.toggle("is-out", !isLit);
+  digitalCandle.setAttribute("aria-pressed", String(isLit));
+  updateCandleLabel();
+  showToast(isLit ? "Relit. Arise, shine; your light has come." : "A soft breath of smoke. Tap to relight your candle.");
+});
+
+digitalCandle.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    digitalCandle.click();
+  }
+});
 
 document.querySelectorAll(".ambience-button").forEach((button) => {
   button.addEventListener("click", () => {
     const ambience = button.dataset.ambience;
     hero.dataset.ambience = ambience;
     pixelFlame.setAmbience(ambience);
-    digitalCandle.setAttribute("aria-label", `A living pixel candle burning with a gentle ${ambience} glow`);
+    updateCandleLabel();
     document.querySelectorAll(".ambience-button").forEach((ambienceButton) => {
       const isActive = ambienceButton === button;
       ambienceButton.classList.toggle("is-active", isActive);
