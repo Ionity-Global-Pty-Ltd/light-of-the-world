@@ -421,11 +421,152 @@ document.querySelector("#newsletter-form").addEventListener("submit", (event) =>
 
 const hero = document.querySelector(".hero");
 const digitalCandle = document.querySelector(".digital-candle");
+
+const pixelFlame = (() => {
+  const canvas = document.querySelector("#flame-canvas");
+  if (!canvas || !canvas.getContext) return { setAmbience() {} };
+
+  const width = canvas.width;
+  const height = canvas.height;
+  const context = canvas.getContext("2d");
+  const frame = context.createImageData(width, height);
+  const heat = new Uint8Array(width * height);
+  const maxHeat = 48;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const paletteStops = {
+    lavender: [[42, 29, 84], [92, 58, 156], [154, 110, 214], [211, 179, 255], [255, 232, 171], [255, 249, 227]],
+    jasmine: [[84, 42, 33], [173, 90, 58], [232, 146, 92], [250, 200, 138], [255, 232, 171], [255, 250, 232]],
+    herbal: [[20, 66, 48], [45, 110, 72], [104, 165, 92], [174, 214, 117], [236, 245, 206], [255, 252, 235]]
+  };
+  let palette = buildPalette(paletteStops.lavender);
+  let wind = 0;
+  let targetWind = 0;
+  let breath = 0;
+  let running = false;
+  let frameHandle = 0;
+  let lastTick = 0;
+
+  function buildPalette(stops) {
+    const colors = [];
+    for (let index = 0; index <= maxHeat; index += 1) {
+      const position = (index / maxHeat) * (stops.length - 1);
+      const stop = Math.min(stops.length - 2, Math.floor(position));
+      const mix = position - stop;
+      const from = stops[stop];
+      const to = stops[stop + 1];
+      colors.push([
+        Math.round(from[0] + (to[0] - from[0]) * mix),
+        Math.round(from[1] + (to[1] - from[1]) * mix),
+        Math.round(from[2] + (to[2] - from[2]) * mix),
+        index < 5 ? 0 : Math.min(255, (index - 4) * 34)
+      ]);
+    }
+    return colors;
+  }
+
+  function stepFire() {
+    breath += 0.08;
+    targetWind = Math.max(-1.6, Math.min(1.6, (targetWind + (Math.random() - 0.5) * 0.3) * 0.98));
+    wind += (targetWind - wind) * 0.08;
+
+    const wickCentre = Math.floor(width / 2);
+    const wickGlow = maxHeat - 3 + Math.round(Math.sin(breath) * 2);
+    const wickHalf = Math.random() < 0.05 ? 6 : 4;
+    const bottomRow = (height - 1) * width;
+    for (let x = 0; x < width; x += 1) {
+      const distance = Math.abs(x - wickCentre);
+      heat[bottomRow + x] = distance <= wickHalf ? Math.max(0, wickGlow - distance * 4 - ((Math.random() * 5) | 0)) : 0;
+    }
+
+    for (let y = height - 1; y > 0; y -= 1) {
+      const row = y * width;
+      const sway = Math.round(wind + Math.sin(breath + y * 0.22) * 0.4);
+      for (let x = 0; x < width; x += 1) {
+        const drift = ((Math.random() * 3) | 0) - 1 + sway;
+        const destinationX = Math.min(width - 1, Math.max(0, x + drift));
+        const value = heat[row + x] - ((Math.random() * 3.4) | 0);
+        heat[row - width + destinationX] = value > 0 ? value : 0;
+      }
+    }
+  }
+
+  function renderFire() {
+    const pixels = frame.data;
+    for (let index = 0; index < heat.length; index += 1) {
+      const color = palette[heat[index]];
+      const offset = index * 4;
+      pixels[offset] = color[0];
+      pixels[offset + 1] = color[1];
+      pixels[offset + 2] = color[2];
+      pixels[offset + 3] = color[3];
+    }
+    context.putImageData(frame, 0, 0);
+  }
+
+  function tick(timestamp) {
+    if (!running) return;
+    frameHandle = window.requestAnimationFrame(tick);
+    if (timestamp - lastTick < 33) return;
+    lastTick = timestamp;
+    stepFire();
+    renderFire();
+  }
+
+  function start() {
+    if (running || reducedMotion.matches || document.hidden) return;
+    running = true;
+    frameHandle = window.requestAnimationFrame(tick);
+  }
+
+  function stop() {
+    running = false;
+    window.cancelAnimationFrame(frameHandle);
+  }
+
+  function renderStill() {
+    for (let index = 0; index < 90; index += 1) stepFire();
+    renderFire();
+  }
+
+  hero.addEventListener("pointermove", (event) => {
+    const bounds = hero.getBoundingClientRect();
+    targetWind = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2.4;
+  });
+
+  document.addEventListener("visibilitychange", () => (document.hidden ? stop() : start()));
+  new IntersectionObserver(
+    (entries) => entries.forEach((entry) => (entry.isIntersecting ? start() : stop())),
+    { threshold: 0.05 }
+  ).observe(canvas);
+
+  if (reducedMotion.addEventListener) {
+    reducedMotion.addEventListener("change", () => {
+      if (reducedMotion.matches) {
+        stop();
+        renderStill();
+      } else {
+        start();
+      }
+    });
+  }
+
+  renderStill();
+  start();
+
+  return {
+    setAmbience(name) {
+      palette = buildPalette(paletteStops[name] || paletteStops.lavender);
+      if (!running) renderFire();
+    }
+  };
+})();
+
 document.querySelectorAll(".ambience-button").forEach((button) => {
   button.addEventListener("click", () => {
     const ambience = button.dataset.ambience;
     hero.dataset.ambience = ambience;
-    digitalCandle.setAttribute("aria-label", `A digital candle burning with a gentle ${ambience} glow`);
+    pixelFlame.setAmbience(ambience);
+    digitalCandle.setAttribute("aria-label", `A living pixel candle burning with a gentle ${ambience} glow`);
     document.querySelectorAll(".ambience-button").forEach((ambienceButton) => {
       const isActive = ambienceButton === button;
       ambienceButton.classList.toggle("is-active", isActive);
